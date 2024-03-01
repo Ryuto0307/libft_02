@@ -6,11 +6,23 @@
 /*   By: ryamagis <ryamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 20:07:37 by yamagishiry       #+#    #+#             */
-/*   Updated: 2023/09/26 17:37:27 by ryamagis         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:50:35 by ryamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_strdup(const char *s1)
 {
