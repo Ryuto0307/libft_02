@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryamagis <saint.ryuto@gmail.com>           +#+  +:+       +#+        */
+/*   By: ryamagis <ryamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:16:18 by yamagishiry       #+#    #+#             */
-/*   Updated: 2024/02/13 17:26:16 by ryamagis         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:36:40 by ryamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char	**split(char const *s, char c, char **array, size_t words_count)
 	{
 		while (*(s + j) && *(s + j) == c)
 			j++;
-		*(array + i) = ft_substr(s, j, get_word_len(&*(s + j), c));
+		*(array + i) = ft_substr(s, j, get_word_len(s + j, c));
 		if (!*(array + i))
 		{
 			free_array(i, array);
