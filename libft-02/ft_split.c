@@ -6,7 +6,7 @@
 /*   By: ryamagis <ryamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:16:18 by yamagishiry       #+#    #+#             */
-/*   Updated: 2024/03/02 15:20:49 by ryamagis         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:38:18 by ryamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static char	**split(char const *s, char c, char **array, size_t words_count)
 			free_array(i, array);
 			return (NULL);
 		}
-		while (*(s + j) && *(s + j) != c)
+		while (s[j] && s[j] != c)
 			j++;
 		i++;
 	}
