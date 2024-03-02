@@ -6,7 +6,7 @@
 /*   By: ryamagis <ryamagis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:16:18 by yamagishiry       #+#    #+#             */
-/*   Updated: 2024/03/01 19:36:40 by ryamagis         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:20:49 by ryamagis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static size_t	count_words(char const *s, char c)
 
 	count = 0;
 	i = 0;
-	while (*(s + i))
+	while (s[i])
 	{
-		if (*(s + i) != c)
+		if (s[i] != c)
 		{
 			count++;
-			while (*(s + i) && *(s + i) != c)
+			while (s[i] && s[i] != c)
 				i++;
 		}
-		else if (*(s + i) == c)
+		else if (s[i] == c)
 			i++;
 	}
 	return (count);
@@ -38,7 +38,7 @@ static size_t	get_word_len(char const *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (*(s + i) && *(s + i) != c)
+	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }
@@ -48,7 +48,7 @@ static void	free_array(size_t i, char **array)
 	while (i > 0)
 	{
 		i--;
-		free(*(array + i));
+		free(array[i]);
 	}
 	free(array);
 }
@@ -62,10 +62,10 @@ static char	**split(char const *s, char c, char **array, size_t words_count)
 	j = 0;
 	while (i < words_count)
 	{
-		while (*(s + j) && *(s + j) == c)
+		while (s[j] && s[j] == c)
 			j++;
-		*(array + i) = ft_substr(s, j, get_word_len(s + j, c));
-		if (!*(array + i))
+		array[i] = ft_substr(s, j, get_word_len(s + j, c));
+		if (!array[i])
 		{
 			free_array(i, array);
 			return (NULL);
@@ -74,7 +74,7 @@ static char	**split(char const *s, char c, char **array, size_t words_count)
 			j++;
 		i++;
 	}
-	*(array + i) = NULL;
+	array[i] = NULL;
 	return (array);
 }
 
